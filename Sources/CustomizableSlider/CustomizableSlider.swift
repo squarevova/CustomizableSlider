@@ -11,7 +11,7 @@ public struct CustomizableSlider<
     
     private let range: ClosedRange<Value>
     private let step: Value
-    private let magnitized: Bool
+    private let magnetized: Bool
     private let trackBackground: () -> TrackBackground
     private let trackForeground: () -> TrackForeground
     private let thumb: () -> Thumb
@@ -31,7 +31,7 @@ public struct CustomizableSlider<
         currentValue: Binding<Value>,
         range: ClosedRange<Value>,
         step: Value,
-        magnitized: Bool = true,
+        magnetized: Bool = false,
         @ViewBuilder trackBackground: @escaping () -> TrackBackground,
         @ViewBuilder trackForeground: @escaping () -> TrackForeground = { EmptyView() },
         @ViewBuilder thumb: @escaping () -> Thumb,
@@ -45,7 +45,7 @@ public struct CustomizableSlider<
         
         self.range = range
         self.step = step
-        self.magnitized = magnitized
+        self.magnetized = magnetized
         self.trackBackground = trackBackground
         self.trackForeground = trackForeground
         self.thumb = thumb
@@ -94,7 +94,7 @@ public struct CustomizableSlider<
                                 onChanged?()
                             }
                             .onEnded { _ in
-                                if magnitized {
+                                if magnetized {
                                     percentage = 1.0 - ((range.upperBound - currentValue) / rangeDiff)
                                 }
 
