@@ -11,10 +11,10 @@ let package = Package(
     products: [
         .library(
             name: "CustomizableSlider",
-            targets: ["CustomizableSlider"]),
+            targets: ["CustomizableSlider"]
+        )
     ],
     targets: [
-        .target(
-            name: "CustomizableSlider")
+        .target(name: "CustomizableSlider")
     ]
 )
