@@ -60,7 +60,7 @@ public struct CustomizableSlider<
                 trackBackground()
                 
                 trackForeground()
-                    .frame(width: thumbCenterInRelationTo(geometry.size) + geometry.size.height)
+                    .frame(width: thumbCenterRelatedTo(geometry.size) + geometry.size.height)
 
                 if showTooltip {
                     tooltip()
@@ -68,14 +68,14 @@ public struct CustomizableSlider<
                             tooltipSize =  $0
                         }
                         .offset(
-                            x: thumbCenterInRelationTo(geometry.size) + tooltipSize.width / 2,
+                            x: thumbCenterRelatedTo(geometry.size) + tooltipSize.width / 2,
                             y: -geometry.size.height / 2 - tooltipSize.height / 2
                         )
                 }
                 
                 thumb()
                     .position(
-                        x: thumbCenterInRelationTo(geometry.size) + geometry.size.height / 2,
+                        x: thumbCenterRelatedTo(geometry.size) + geometry.size.height / 2,
                         y: geometry.size.height / 2
                     )
                     .gesture(
@@ -107,7 +107,7 @@ public struct CustomizableSlider<
         }
     }
     
-    private func thumbCenterInRelationTo(_ size: CGSize) -> CGFloat {
+    private func thumbCenterRelatedTo(_ size: CGSize) -> CGFloat {
         (size.width - size.height) * CGFloat(percentage)
     }
 }
